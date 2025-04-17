@@ -1,0 +1,7 @@
+Installation steps for cypress
+------------------------------------------
+1. create a folder and open with visual studio code
+2. open terminal and run below 3 commands - (wait for command to execute) 
+3. npm init -y               ------ pakage.json file created
+4. npm install cypress --save-dev      ------ cypress install latest version
+5. npx cypress open          ------ cypress test runner will open
