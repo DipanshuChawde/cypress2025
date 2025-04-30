@@ -33,9 +33,29 @@ describe('verify traversing tech in cypress',()=>{
 
     })
 
-    it.only('find',()=>{
+    it('find',()=>{
         cy.get('#form-textfield').find('[name="firstname"]').type('dipanshu')
         cy.get('#form-textfield').find('[name="lastname"]').type('chawde')
         cy.get('#form-textfield').find('textarea').type('hi')
     })
+
+    it('contain',()=>{
+        cy.get('.traversal-buttons').contains('Link').click()
+    })
+
+    it('contain2',()=>{
+        cy.visit('https://www.webdriveruniversity.com/')
+        cy.contains('CONTACT US').click()
+
+        //cy.get('#contact-us > div >div.section-title > h1').click()
+    })
+
+    it.only('parent, parents, parentsUntill',()=>{
+        cy.get('#espresso').parent().should('have.attr', 'class','traversal-drinks-list')
+
+        cy.get('#espresso').parents().should('have.length',6)
+
+        cy.get('#espresso').parentsUntil('body > div.container').should('have.length',3)
+    })
+
 })
