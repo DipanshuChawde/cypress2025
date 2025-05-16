@@ -31,3 +31,8 @@ Cypress.Commands.add('OHRMlogin', (ud, pw) => {
     cy.get('[name="password"]').type(pw)
     cy.get('button[type="submit"]').click()
 })
+
+//16.iframe.cy.js
+Cypress.Commands.add('iframe', (uniqueSelector) => {
+    return cy.get(uniqueSelector).its('0.contentDocument.body').then(cy.wrap)
+ })
