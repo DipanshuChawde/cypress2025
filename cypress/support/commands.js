@@ -36,3 +36,7 @@ Cypress.Commands.add('OHRMlogin', (ud, pw) => {
 Cypress.Commands.add('iframe', (uniqueSelector) => {
     return cy.get(uniqueSelector).its('0.contentDocument.body').then(cy.wrap)
  })
+
+ Cypress.Commands.add('getiFrameBody', (frameId) => {
+    return cy.get(frameId).its('0.contentDocument.body').then(cy.wrap)
+})
