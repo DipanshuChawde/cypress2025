@@ -11,7 +11,6 @@ describe('verify shadowdom in cypress', () => {
         cy.get('#droppable > p >b').should('have.text', 'Dropped!')
     })
 
-
     it('mouse hover', () => {
         cy.visit('https://www.webdriveruniversity.com/Actions/index.html')
         //hover me first
@@ -27,5 +26,10 @@ describe('verify shadowdom in cypress', () => {
         cy.get('[class="dropdown-content"]').eq(2).invoke('show') //hover
         cy.get('[class="list-alert"]').eq(2).should('be.visible')
          cy.get('[class="list-alert"]').eq(3).should('be.visible')
+    })
+
+    it('mouse drag and drop', () => {
+        cy.visit('https://www.webdriveruniversity.com/Actions/index.html')
+        
     })
 })
