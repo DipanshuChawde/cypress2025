@@ -28,8 +28,17 @@ describe('verify shadowdom in cypress', () => {
          cy.get('[class="list-alert"]').eq(3).should('be.visible')
     })
 
-    it('mouse drag and drop', () => {
+    it('mouse db click', () => {
         cy.visit('https://www.webdriveruniversity.com/Actions/index.html')
+        cy.get('#double-click').should('not.have.class','double')
+        cy.get('#double-click').trigger('dblclick', {button : 1}).should('have.class','double')
+        
+    })
+
+     it.only('mouse click and hold', () => {
+        cy.visit('https://www.webdriveruniversity.com/Actions/index.html')
+        cy.get('#click-box').trigger('mousedown',{button : 1}).should('have.text','Well done! keep holding that click now.....')
+        cy.get('#click-box').trigger('mouseup',{button : 1}).should('have.text','Dont release me!!!')
         
     })
 })
