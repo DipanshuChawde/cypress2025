@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "uat-test" : "npx cypress run --spec 'cypress/e2e/3-basics/24.environments.cy.js' --headed --browser edge --config-file uat.config.js",
+    "sit-test" : "npx cypress run --spec 'cypress/e2e/3-basics/24.environments.cy.js' --headed --browser edge --config-file sit.config.js"
   },
   "keywords": [],
   "author": "",
