@@ -1,8 +1,13 @@
 const { defineConfig } = require("cypress");
+//excel payload---------
+const xlsx = require('node-xlsx').default;
+const fs = require('fs');
+const path = require('path');
+//----------------------
 
 module.exports = defineConfig({
   e2e: {
-    video : true,
+    video: true,
     //chromeWebSecurity: false,
     //includeShadowDom : true ,
     //baseUrl : 'https://opensource-demo.orangehrmlive.com/',
@@ -32,6 +37,21 @@ module.exports = defineConfig({
         }
       })
       //14.cyTask.cy.js------------------------
+
+      //excel payload--------------------
+      on("task", {
+        parseXlsx({ filePath }) {
+          return new Promise((resolve, reject) => {
+            try {
+              const jsonData = xlsx.parse(fs.readFileSync(filePath))
+              resolve(jsonData);
+            } catch (e) {
+              reject(e);
+            }
+          });
+        }
+      })
+      //---------------------------------
     },
   },
 });

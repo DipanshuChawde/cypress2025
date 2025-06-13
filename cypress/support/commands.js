@@ -51,3 +51,8 @@ Cypress.Commands.add('loginBySession', (uid, pw) => {
         cy.get('button[type="submit"]').click()
     })
 })
+
+//example3Excel
+Cypress.Commands.add('parseXlsx', (inputFile) => {
+    return cy.task('parseXlsx', { filePath: inputFile })
+})
