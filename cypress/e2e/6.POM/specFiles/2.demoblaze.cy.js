@@ -8,5 +8,11 @@ describe('shopping',()=>{
     it("my first shopping",()=>{
         hp.visitUrl()
         hp.login(userCri.un,userCri.pw)
+        //for monitor
+        hp.addToCart("monitor",productList.monitor)
+        //for phone
+        // hp.addToCart('phone',productList.phone)
+        // //for laptop
+        // hp.addToCart('laptop',productList.laptop)
     })
 })
