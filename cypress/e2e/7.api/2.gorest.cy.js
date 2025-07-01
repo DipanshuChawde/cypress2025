@@ -53,7 +53,7 @@ describe("verify api testing  in cypress - gorest", () => {
 
     })
 
-    it.only(`delete user `, () => {
+    it.only(`get user `, () => {
         cy.request({
             url: 'https://gorest.co.in/public/v2/users',
             method: "GET",
