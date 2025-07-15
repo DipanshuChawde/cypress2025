@@ -5,3 +5,70 @@ Installation steps for cypress
 3. npm init -y               ------ pakage.json file created
 4. npm install cypress --save-dev      ------ cypress install latest version
 5. npx cypress open          ------ cypress test runner will open
+
+
+-----------------------cypress test in parallel------------------------------------
+
+run cypress test cases in parallel
+step 1 : install 
+npm install cypress-parallel 
+
+step 2 : in package .json create following script
+
+"test" : "npx cypress run --headed"
+"cypress:parallel" : "cypress-parallel -d cypress/e2e/parallelExe/ -t 2 -s test"
+ // run with npm run cypress:parallel  
+--------------------parallel explanation ------------------------------------------
+About cypress-parallel
+
+cypress-parallel is an open source library that will help you to run your tests in parallel on the same
+machine using a similar multi-threading approach.
+
+How it works
+- Search for existing Cypress tests
+- Read (if exists) a weight file
+- Split spec files into different threads
+- For each thread it runs the Cypress command you've passed as argument
+- Wait for all threads to finish and collects the result in a single report
+
+How to install:
+
+npm install cypress-parallel
+-----------------------------------------------------------------------------------
+
+-------------------reporters in cypress---------------------------------------------
+https://github.com/LironEr/cypress-mochawesome-reporter
+
+
+1) install cypress-mochawesome-reporter
+
+npm i --save-dev cypress-mochawesome-reporter
+
+2) Change cypress reporter & setup hooks
+
+Edit config file (cypress.config.js by default)
+
+const { defineConfig } = require("cypress");
+
+module. exports = defineConfig({
+
+reporter: 'cypress-mochawesome-reporter',
+
+e2e: {
+setupNodeEvents(on, config) {
+// implement node event listeners here
+require('cypress-mochawesome-reporter/plugin') (on); // for reports
+
+// for reports
+
+});
+
+3) Add to cypress/support/e2e.js
+
+import 'cypress-mochawesome-reporter/register';
+
+4) run cypress
+
+npx cypress run -- spec cypress\e2e\MyTest.cy. js
+-------------------------------------------------------------------
+-------------------------github actions----------------------------

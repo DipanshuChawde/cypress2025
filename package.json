@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx cypress run --headed",
+    "cypress:parallel": "cypress-parallel -d cypress/e2e/8.parallelExe -t 2 -s test",
     "uat-test": "npx cypress run --spec 'cypress/e2e/3-basics/24.environments.cy.js' --headed --browser edge --config-file uat.config.js",
     "sit-test": "npx cypress run --spec 'cypress/e2e/3-basics/24.environments.cy.js' --headed --browser edge --config-file sit.config.js"
   },
@@ -13,9 +14,11 @@
   "description": "",
   "devDependencies": {
     "cypress": "^14.3.0",
+    "cypress-mochawesome-reporter": "^4.0.0",
     "node-xlsx": "^0.24.0"
   },
   "dependencies": {
+    "cypress-parallel": "^0.15.0",
     "xml2js": "^0.6.2"
   }
 }

@@ -6,12 +6,15 @@ const path = require('path');
 //----------------------
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
   e2e: {
     video: true,
     //chromeWebSecurity: false,
     //includeShadowDom : true ,
     //baseUrl : 'https://opensource-demo.orangehrmlive.com/',
     setupNodeEvents(on, config) {
+    require('cypress-mochawesome-reporter/plugin') (on); // for reports
+
       // implement node event listeners here
       //14.cyTask.cy.js------------------------
       //task1
