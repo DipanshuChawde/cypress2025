@@ -3,7 +3,7 @@ name: Run Cypress E2E(specific folder)
 on : 
   push : 
     branches : 
-      -main
+      - main
 
 jobs:
   cypress-run:
@@ -15,17 +15,17 @@ jobs:
 
     steps : 
       #setp1 :check out code from git repository
-      - name : Checkout code
-        uses : action/Checkout@v4
+      - name : checkout code
+        uses : action/checkout@v4
 
       #step2 :setup nodejs environment
-      - name : Set up Node.js
+      - name : set up Node.js
         uses : action/setup-node@v4
         with : 
           node-version : 18
 
       #step3 install dependencies
-      - name : Install dependencies
+      - name : install dependencies
         run : npm install
 
       #step4 run cypress files from specific folder
