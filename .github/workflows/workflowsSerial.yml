@@ -1,0 +1,33 @@
+name: Run Cypress E2E(specific folder)
+
+on : 
+  push : 
+    branches : 
+      -main
+
+jobs : 
+  cypress-run :
+    runs-on : ubuntu-latest
+
+    steps : 
+      #setp1 :check out code from git repository
+      - name : Checkout code
+        uses : action/Checkout@v4
+
+      #step2 :setup nodejs environment
+      - name : Set up Node.js
+        uses : action/setup-node@v4
+        with : 
+          node-version : 18
+
+      #step3 install dependencies
+      - name : Install dependencies
+        run : npm install
+
+      #step4 run cypress files from specific folder
+      - name : Run cypress tests
+        run : 
+          npx cypress run --spec "cypress/e2e/8.parallelExe/**/*.cy.js"
+
+              
+
