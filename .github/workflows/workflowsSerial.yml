@@ -1,33 +1,69 @@
-name: Run Cypress E2E(specific folder)
+# name: Run Cypress E2E(specific folder)
+
+# on : 
+#   push : 
+#     branches : 
+#       -main
+
+# jobs : 
+#   cypress-run :
+#     runs-on : ubuntu-latest
+
+#     steps : 
+#       #setp1 :check out code from git repository
+#       - name : Checkout code
+#         uses : action/Checkout@v4
+
+#       #step2 :setup nodejs environment
+#       - name : Set up Node.js
+#         uses : action/setup-node@v4
+#         with : 
+#           node-version : 18
+
+#       #step3 install dependencies
+#       - name : Install dependencies
+#         run : npm install
+
+#       #step4 run cypress files from specific folder
+#       - name : Run cypress tests
+#         run : 
+#           npx cypress run --spec "cypress/e2e/8.parallelExe/**/*.cy.js"
+
+#---------------------------------------------------------------------------
+
+name: Run Cypress E2E (specific folder)
 
 on : 
   push : 
     branches : 
       -main
+  pull_request : 
 
-jobs : 
-  cypress-run :
-    runs-on : ubuntu-latest
+jobs:
+  cypress-run : 
+    runs-on : ubuntu-latest  
 
     steps : 
-      #setp1 :check out code from git repository
+      #step 1 :checkout code from git repository
       - name : Checkout code
-        uses : action/Checkout@v4
+        uses : actions/checkout@v4
 
-      #step2 :setup nodejs environment
-      - name : Set up Node.js
-        uses : action/setup-node@v4
+    #step2 : set up node js environment 
+      - name : Set up Node.js 
+        uses : actions/setup-node@v4
         with : 
-          node-version : 18
+        node-version: 18
 
-      #step3 install dependencies
+    #step 3 : install dependencies
       - name : Install dependencies
         run : npm install
 
-      #step4 run cypress files from specific folder
-      - name : Run cypress tests
+    #step4: run cypress test from specific folder
+      - name : Run cypress Test
         run : 
-          npx cypress run --spec "cypress/e2e/8.parallelExe/**/*.cy.js"
+          npx cypress run --spec "cypress/e2e/8.parallelExe/**/*.cy.js"  
+
+
 
               
 
