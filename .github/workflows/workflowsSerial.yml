@@ -16,11 +16,11 @@ jobs:
     steps : 
       #setp1 :check out code from git repository
       - name : checkout code
-        uses : action/checkout@v4
+        uses : actions/checkout@v4
 
       #step2 :setup nodejs environment
       - name : set up Node.js
-        uses : action/setup-node@v4
+        uses : actions/setup-node@v4
         with : 
           node-version : 18
 
