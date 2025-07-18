@@ -11,7 +11,7 @@ jobs:
     strategy : 
       fail-fast : false
       matrix : 
-        container : [1, 2, 3, 4]
+        container : [1, 2]
 
     steps : 
       #setp1 :check out code from git repository
