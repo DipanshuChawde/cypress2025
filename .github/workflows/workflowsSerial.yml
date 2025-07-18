@@ -31,7 +31,7 @@ jobs:
       #step4 run cypress files from specific folder
       - name : Run cypress tests
         run : 
-          npx cypress run --spec "cypress/e2e/8.parallelExe/test${{ matrix.container }}.cy.js
+          npx cypress run --spec "cypress/e2e/8.parallelExe/test${{ matrix.container }}.cy.js"
          # npx cypress run --spec "cypress/e2e/8.parallelExe/**/*.cy.js"
 
 #---------------------------------------------------------------------------
